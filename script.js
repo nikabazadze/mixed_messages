@@ -24,3 +24,27 @@ const gatesQuotes = [
 messages.push(steveQuotes);
 messages.push(elonQuotes);
 messages.push(gatesQuotes);
+
+// Prints three random messages (quotes)
+const createMessage = arr => {
+    let msg1 = getMessage(arr);
+    do {
+       var msg2 = getMessage(arr);
+    } while (msg1 === msg2);
+    do {
+        var msg3 = getMessage(arr);
+     } while (msg1 === msg3 || msg2 === msg3);
+    
+    console.log(msg1);
+    console.log(msg2);
+    console.log(msg3);
+};
+
+// Returns a single quote by randomly choosing person and quote index
+const getMessage = arr => {
+    let personIndex = Math.floor(Math.random() * arr.length);
+    let quoteIndex = Math.floor(Math.random() * arr[personIndex].length);
+    return arr[personIndex][quoteIndex];
+};
+
+createMessage(messages);
